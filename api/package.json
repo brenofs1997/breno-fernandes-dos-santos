@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/brenofs1997/breno-fernandes-dos-santos.git",
-  "author": "PauloFH99 <brenofs1997@gmail.com>",
-  "license": "MIT",
+  "author": "brenofs1997 <brenofs1997@gmail.com>",
+  "license": "MIT", 
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon src/index.ts",
+    "start": "node dist"
+  },
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.14",
