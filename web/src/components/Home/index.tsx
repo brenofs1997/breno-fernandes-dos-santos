@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Header } from '../Header';
+import Users from '../Users';
 import {Container,Content} from './styles';
 
 export function Home() {
@@ -9,7 +10,7 @@ export function Home() {
         <Container>
             <Header />
             <Content>
-                oi
+                <Users />
             </Content>
         </Container>
     );
