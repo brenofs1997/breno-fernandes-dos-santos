@@ -16,7 +16,7 @@ export function FormLogin() {
     event.preventDefault();
     await api.post('auth/signin', { username, password })
       .then((response) => {
-        goBack('/');
+        goBack('/home');
       }).catch((error) => {
         let errorMenssage = '';
         if (error instanceof AxiosError) {
