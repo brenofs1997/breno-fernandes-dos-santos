@@ -61,6 +61,12 @@ export const Container = styled.div`
   }
 `;
 
-export const InputBlock = styled.div`
+export const Content = styled.div`
+  max-width: 1216px;
+  align-items: center;
+  justify-content: center;
+  margin:24px;
+`;
 
+export const InputBlock = styled.div`
 `;
