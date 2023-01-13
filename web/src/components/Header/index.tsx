@@ -34,8 +34,8 @@ export function Header() {
                 <Link to="/home">
                     <img src={logo} alt="Logo" width="600" height="400" />
                 </Link>
-                <Link to="/">
-                    <p>Feed</p>
+                <Link to="/cats">
+                    <p>Cats</p>
                 </Link>
                 <Link to="/account">
                     <p>Account</p>

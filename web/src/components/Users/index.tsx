@@ -7,11 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import { useState } from 'react';
-import api from '../../services/api';
-import axios from 'axios';
+import { Key, useState } from 'react';
 
-const Header = ["Name", "Email", "Username", "Age", "Picture"];
+import axios from 'axios';
 
 const columns = [
     { id: "name", label: "Name", minWidth: 170, align: "right" },
@@ -29,7 +27,7 @@ interface Items {
     picture: string
 }
 
-export const productsGenerator = async (quantity: number) => {
+export const usersGenerator = async (quantity: number) => {
     const items: Items[] = [];
     let item = {} as Items;
 
@@ -48,7 +46,7 @@ export const productsGenerator = async (quantity: number) => {
     return items;
 };
 
-const rows = await productsGenerator(15);
+const rows = await usersGenerator(15);
 
 const useStyles = makeStyles({
     root: {
@@ -91,7 +89,7 @@ export default function Users() {
                     </TableHead>
                     <TableBody>
                         {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            .map((row) => {
+                            .map((row: { [x: string]: any; name: Key | null | undefined; }) => {
                                 return (
                                     <TableRow hover role="checkbox" tabIndex={-1} key={row.name}>
                                         {columns.map((column) => {
