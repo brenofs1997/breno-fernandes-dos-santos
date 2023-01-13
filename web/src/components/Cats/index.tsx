@@ -20,7 +20,7 @@ export function Cats() {
           </InputBlock>
         </Content>
 
-        { httpStatus == '' ? 'Campo vazio ou resultado não encontrado...' : <img src={`https://http.cat/${httpStatus}`} />}
+        { httpStatus == '' ? 'Campo vazio ou resultado não encontrado...' : <img src={`https://http.cat/${httpStatus}`} width="600" height="600"/>}
       </Container>
     </>
   );

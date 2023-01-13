@@ -22,11 +22,11 @@ export function Header() {
                 <Link to="/home" onClick={() => setNav(false)}>
                     <img src={logo} alt="Logo" width="600" height="400" />
                 </Link>
-                <Link to="/" onClick={() => setNav(false)}>
-                    <p>Feed</p>
+                <Link to="/cats" onClick={() => setNav(false)}>
+                    <p>Cats</p>
                 </Link>
-                <Link to="/account" onClick={() => setNav(false)}>
-                    <p>Account</p>
+                <Link to="/dogs" onClick={() => setNav(false)}>
+                    <p>Dogs</p>
                 </Link>
             </MobileMenu>
 
@@ -37,8 +37,8 @@ export function Header() {
                 <Link to="/cats">
                     <p>Cats</p>
                 </Link>
-                <Link to="/account">
-                    <p>Account</p>
+                <Link to="/dogs">
+                    <p>Dogs</p>
                 </Link>
             </DesktopMenu>
         </StyledNav>
