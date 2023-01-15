@@ -1,6 +1,7 @@
-import { GlobalStyles } from './styles/GlobalStyles'
-import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify'
+import { GlobalStyles } from './styles/GlobalStyles'
+
 import { Login } from './components/Login'
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <ToastContainer position="bottom-center" />
+      <ToastContainer />
       <Login />
     </>
   )

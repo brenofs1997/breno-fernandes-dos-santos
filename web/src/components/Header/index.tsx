@@ -28,6 +28,9 @@ export function Header() {
                 <Link to="/dogs" onClick={() => setNav(false)}>
                     <p>Dogs</p>
                 </Link>
+                <Link to="/clients">
+                    <p>Clients</p>
+                </Link>
             </MobileMenu>
 
             <DesktopMenu>
@@ -39,6 +42,9 @@ export function Header() {
                 </Link>
                 <Link to="/dogs">
                     <p>Dogs</p>
+                </Link>
+                <Link to="/clients">
+                    <p>Clients</p>
                 </Link>
             </DesktopMenu>
         </StyledNav>

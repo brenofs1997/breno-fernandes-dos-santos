@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import SearchBar from 'material-ui-search-bar';
 import { Key, useState } from 'react';
 
 import axios from 'axios';
@@ -46,7 +47,7 @@ export const usersGenerator = async (quantity: number) => {
     return items;
 };
 
-const rows = await usersGenerator(15);
+const originalRows = await usersGenerator(15);
 
 const useStyles = makeStyles({
     root: {
@@ -61,6 +62,8 @@ export default function Users() {
     const classes = useStyles();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [rows, setRows] = useState<Items[]>(originalRows);
+    const [searched, setSearched] = useState<string>("");
 
     const handleChangePage = (event: any, newPage: any) => {
         setPage(newPage);
@@ -71,8 +74,33 @@ export default function Users() {
         setPage(0);
     };
 
+    const requestSearch = (searchedVal: string) => {
+
+        const filteredRows = originalRows.filter((row) => {
+            if (row.name.toLowerCase().includes(searchedVal.toLowerCase()))
+                return row.name.toLowerCase().includes(searchedVal.toLowerCase())
+
+            if (row.email.toLowerCase().includes(searchedVal.toLowerCase()))
+                return row.email.toLowerCase().includes(searchedVal.toLowerCase())
+
+            return row.username.toLowerCase().includes(searchedVal.toLowerCase());
+        });
+
+        setRows(filteredRows);
+    };
+
+    const cancelSearch = () => {
+        setSearched("");
+        requestSearch(searched);
+    };
+
     return (
         <Paper className={classes.root}>
+            <SearchBar
+                value={searched}
+                onChange={(searchVal: string) => requestSearch(searchVal)}
+                onCancelSearch={() => cancelSearch()}
+            />
             <TableContainer className={classes.container}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>
@@ -97,7 +125,7 @@ export default function Users() {
                                             return (
                                                 <TableCell key={column.id}>
                                                     {column.format && column.format == "image"
-                                                        ? <img src={value} alt="picture" width="50" height="50"/>
+                                                        ? <img src={value} alt="picture" width="50" height="50" />
                                                         : value}
                                                 </TableCell>
                                             );
